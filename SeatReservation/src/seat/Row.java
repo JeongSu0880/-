@@ -1,6 +1,7 @@
 package seat;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -37,7 +38,7 @@ public class Row {
 	// 해당 객체의 열에서 입력받은 이름과 일치하는 element를 찾아 그 개수가 1개이면 바로 삭제, 반환값은 일치하는 개수 (1개 이상일 시에 cancel 클래스에서 다룰 예
 	public int	getMatchSeatCount(String name) {
 		List<Map.Entry<Integer, Seat>> matched = this.seat.entrySet().stream()
-				.filter(e -> e.getValue().getReservationName().equals(name))
+				.filter(e -> Objects.equals(e.getValue().getReservationName(), name))
 				.collect(Collectors.toList());
 		int size = matched.size();
 		return (size);
@@ -49,7 +50,7 @@ public class Row {
 			return (false);
 		else {
 			Optional<Map.Entry<Integer, Seat>> matched = this.seat.entrySet().stream()
-					.filter(e -> e.getValue().getReservationName().equals(name))
+					.filter(e -> Objects.equals(e.getValue().getReservationName(), name))
 					.findFirst();
 			matched.get().getValue().setReservationName(null);
 		}
@@ -61,7 +62,7 @@ public class Row {
 		Optional<Map.Entry<Integer, Seat>> matched = this.seat.entrySet().stream()
 				.filter(e -> e.getKey().equals(seatNum))
 				.findFirst();
-		if (matched.get().getValue().getReservationName().equals(name) == false)
+		if (Objects.equals(matched.get().getValue().getReservationName(), name) == false)
 			return (false);
 		matched.get().getValue().setReservationName(null);
 		return (true);
@@ -70,11 +71,13 @@ public class Row {
 	
 	//맵을 돌면서 row의 좌석의 상태를 출력하는 함수.
 	public void	printRowStatus() {
+		System.out.print(this.type + " >> ");
 		for (Map.Entry<Integer, Seat> entry : seat.entrySet()) {
 			if (entry.getValue().getReservationName() != null)
 				System.out.print(entry.getValue().getReservationName());
 			else
-				System.out.print("---");
+				System.out.print(" --- ");
 		}
+		System.out.println("");
 	}
 }

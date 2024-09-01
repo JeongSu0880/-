@@ -16,7 +16,7 @@ public class Seat {
 	public void	setReservationName(String name) { 
 		this.reservationName = name;
 	}
-	
+	//각 좌석의 예약 상태를 출력하는 함수
 	public void	printSeatStatus() {
 		System.out.print(this.reservationName);
 	}

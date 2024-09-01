@@ -1,5 +1,14 @@
 package display;
 
+import	seat.Row;
+import java.util.Scanner;
+
 abstract public class Menu {
-	public abstract void	printContent();
+	protected Row row;
+	protected Row[]		rows = new Row[3];
+
+	public abstract void	printContent(Scanner sc);
+	public void	setRow(Row row) {
+		this.row = row;
+	}
 }

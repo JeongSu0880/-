@@ -5,9 +5,9 @@ public class CommonPrompt{
 	public static final String seatTypePrompt = "Seat type : S(1), A(2), B(3) >> ";
 	
 	public static void	chooseMenu() {
-		System.out.println(menuPrompt);
+		System.out.print(menuPrompt);
 	}
 	public static void seatTypePrompt() {
-		System.out.println(seatTypePrompt);
+		System.out.print(seatTypePrompt);
 	}
 }

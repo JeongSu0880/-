@@ -1,20 +1,19 @@
 package display;
 
 import	seat.Row;
+import java.util.Scanner;
 
 public class Search extends Menu {
-	private Row[]		row = new Row[3];
+	private Row[]		rows = new Row[3];
 
-	public void setRows(Row r1, Row r2, Row r3) {
-		row[0] = r1;
-		row[1] = r2;
-		row[2] = r3;
+	public Search(Row[] rows) {
+		this.rows = rows;
 	}
-
-	public void	printContent() {
-		row[0].printRowStatus();
-		row[1].printRowStatus();
-		row[3].printRowStatus();
+	// 모든 열의 좌석 상태를 출력
+	public void	printContent(Scanner sc) {
+		rows[0].printRowStatus();
+		rows[1].printRowStatus();
+		rows[2].printRowStatus();
 		System.out.println("This is the end of the search.");
 	}
 }
