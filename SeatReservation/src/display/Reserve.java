@@ -5,17 +5,12 @@ import java.util.Scanner;
 import main.Main;
 import seat.Row;
 
-public class Reserve extends Menu{
-	private int		seatNum;
-	private Row[]		rows = new Row[3];
-	private String		name;
+public class Reserve extends Menu {
+	private int seatNum;
+	private String name;
 
 	public Reserve(Row[] rows) {
-		this.rows = rows;
-	}
-
-	public void	setSeatNum(int seatNum) {
-		this.seatNum = seatNum;
+		super(rows);
 	}
 
 	// 이름과 좌석 번호 입력받은 후 좌석 정보에 예약자 이름 저장
@@ -32,8 +27,8 @@ public class Reserve extends Menu{
 		this.seatNum = Main.checkInputValidity(sc, 16);
 		this.addReservation(sc);
 	}
-	
-	public void	addReservation(Scanner sc) {
+
+	public void addReservation(Scanner sc) {
 		row.addName(seatNum, name);
 	}
 }
