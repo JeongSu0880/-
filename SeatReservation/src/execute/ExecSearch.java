@@ -1,16 +1,18 @@
-package display;
+package execute;
 
-import seat.Row;
 import java.util.Scanner;
+import seat.Row;
 
-public class Search extends Menu {
+public class ExecSearch extends ActionTask {
 
-	public Search(Row[] rows) {
+	public ExecSearch(Row[] rows) {
 		super(rows);
 	}
 
-	// 모든 열의 좌석 상태를 출력
-	public void printContent(Scanner sc) {
+	public void handleIO(Scanner sc) {
+	};
+	
+	public void	execTask(Scanner sc) {
 		rows[0].printRowStatus();
 		rows[1].printRowStatus();
 		rows[2].printRowStatus();
