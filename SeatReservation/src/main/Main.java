@@ -21,9 +21,10 @@ public class Main {
 		System.out.println("This is the reservation system for music concert");
 		while (true) {
 			CommonPrompt.chooseMenu();
-			input = checkIntInputValidity(sc, 4);
-			menu = inputMenu(input, rows);
-			menu.printContent(sc);
+			input = ActionTask.checkIntInputValidity(sc, 4);
+			task = CommonPrompt.inputTask(input, rows);
+			task.handleIO(sc);
+			task.execTask(sc);
 			System.out.println("");
 		}
 	}

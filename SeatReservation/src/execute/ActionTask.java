@@ -20,9 +20,9 @@ abstract public class ActionTask {
 		this.rows = rows;
 	}
 
-	abstract protected void handleIO(Scanner sc);
+	abstract public void handleIO(Scanner sc);
 
-	abstract protected void execTask(Scanner sc);
+	abstract public void execTask(Scanner sc);
 
 	// 인풋을 받을 때, 숫자를 받으면 Int가 맞는지 예외처리 후 올바른 범위 안에 있는지 체크하는 함수
 	public static int checkIntInputValidity(Scanner sc, int range) {
